@@ -1,28 +1,18 @@
 <template>
-	<div style="margin-top:5px">
-		<el-row :gutter="10">
-			<el-col :xs="4" :sm="4" :md="4" :lg="4">
-				<div>
-					<el-menu default-active="1" class="el-menu-vertical" style="min-height:800px">
-						<el-menu-item v-for="item in menusList">{{item.NAME}}
-							<el-menu-item v-for="iter in menusList.dataSon">{{iter.NAME}}</el-menu-item>
-						</el-menu-item>
-						<!--<el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
-						<el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>-->
-					</el-menu>
-				</div>
-			</el-col>
-			<el-col :xs="20" :sm="20" :md="20" :lg="20">
-				<div>
-					<div style="border: 1px solid #A6A6A6; border-radius:6px; padding:5px; margin:2px; background-color: white">
-						<el-breadcrumb separator="/">
-							<el-breadcrumb-item v-for="item in breadcrumbItems">{{item}}</el-breadcrumb-item>
-						</el-breadcrumb>
-					</div>
-				</div>
-			</el-col>
-		</el-row>
-	</div>
+	<el-row class="tac">
+		<el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+			<el-menu default-active="2" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :router="true">
+				<el-submenu v-for="item in menusList" :index="'magus'+item.URL">
+					<template slot="title">
+						<span>{{item.NAME}}</span>
+					</template>
+					<el-menu-item-group v-if="item.dataSon">
+						<el-menu-item :index="'magus'+subItem.URL" v-for="subItem in item.dataSon">{{subItem.NAME}}</el-menu-item>
+					</el-menu-item-group>
+				</el-submenu>
+			</el-menu>
+		</el-col>
+	</el-row>
 </template>
 
 <script>
@@ -30,8 +20,8 @@
 		name: 'Left',
 		data() {
 			return {
-				breadcrumbItems: [],
 				menusList: []
+
 			}
 		},
 		mounted: function() {
@@ -47,19 +37,19 @@
 					menuApi, {
 						params: params
 					}
-
 				).then(function(response) {
 					this.menusList = response.data;
 				}, function(erro) {
 
 				}).catch();
+			},
+			handleOpen(key, keyPath) {
+				console.log(key, keyPath);
+			},
+			handleClose(key, keyPath) {
+				console.log(key, keyPath);
 			}
-
 		}
 
 	}
 </script>
-
-<style>
-
-</style>

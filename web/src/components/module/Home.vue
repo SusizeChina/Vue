@@ -1,31 +1,33 @@
 <template>
-	<div style="background-color: #EBEBEB;min-height:800px">
+	<div style="background-color:slategray;min-height:800px">
 		<Top></Top>
 		<Left></Left>
-		<div class="right">
-			<transition name="fade" mode="out-in">
-				<router-view keep-alive class="view"></router-view>
-			</transition>
-		</div>
+		<Rigth></Rigth>
 	</div>
 </template>
 
 <script>
 	import Top from './Top.vue'
 	import Left from './Left.vue'
+	import Right from './Right.vue'
 	export default {
 		name: 'Home',
 		data() {
 			return {
-
+				props: {
+					index: String | Number,
+					subindex: String | Number
+				}
 			}
 		},
 		components: {
 			Top,
-			Left
+			Left,
+			Right
 		}
 	}
 </script>
 
 <style>
+
 </style>
