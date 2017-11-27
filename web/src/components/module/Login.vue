@@ -11,7 +11,7 @@
 			}
 		},
 		created() {
-			console.log(this.getStatus(this.$route.path));
+
 		},
 		methods: {
 			next() {

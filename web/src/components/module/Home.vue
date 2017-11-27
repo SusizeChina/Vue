@@ -1,9 +1,10 @@
 <template>
-	<div style="background-color:slategray;min-height:800px">
-		<Top></Top>
-		<Left></Left>
-		<Rigth></Rigth>
-	</div>
+	<el-row class="tac">
+		<el-col :span="24">
+			<Top></Top>
+			<Left></Left>
+		</el-col>
+	</el-row>
 </template>
 
 <script>
@@ -14,11 +15,11 @@
 		name: 'Home',
 		data() {
 			return {
-				props: {
-					index: String | Number,
-					subindex: String | Number
-				}
+
 			}
+		},
+		props: {
+			index: String | Number
 		},
 		components: {
 			Top,
