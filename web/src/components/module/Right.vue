@@ -1,5 +1,9 @@
 <template>
-	
+	<el-col :span="19" class="rightBox">
+		<transition name="fade" mode="out-in">
+			<router-view></router-view>
+		</transition>
+	</el-col>
 </template>
 
 <script>
@@ -13,15 +17,7 @@
 
 <style>
 	.rightBox {
-		width: 100px;
-		height: 100px;
-		position: absolute;
-		left: 1500px;
-		top: 12%;
-		bottom: 0;
-		right: 0;
-		padding: 10px;
-		overflow-y: scroll;
-		background-color: aquamarine;
+		height: auto;
+		widows: 100%;
 	}
 </style>

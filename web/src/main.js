@@ -16,10 +16,15 @@ Vue.prototype.Consts = {
 	MENU_LIST: {},
 	ADMIN: {
 		LOGIN: "/magus/adminLoginSubmit", //后台登录
-		MENU_LIST: "/magus/admin/manage/auth/menu/loadSonsByIdNew" //获取菜单列表
+		MENU_LIST: "/magus/admin/manage/auth/menu/loadSonsByIdNew", //获取菜单列表
+		GET_BUNDLE: "/magus/admin/manage/bundle/list",
+		HTTP_URL: "/magus/admin/manage/httpurl/list",
+		UPDATE_HTTPURL: "/magus/admin/manage/httpurl/update",
+		LIST_SERVICE: "/magus/admin/manage/bundle/listService",
+		LIST_API: "/magus/admin/manage/api/list",
+		LIST_APITYPE: "/magus/admin/manage/apitype/list"
 	},
 };
-
 /* eslint-disable no-new */
 new Vue({
 	el: '#app',
@@ -28,4 +33,4 @@ new Vue({
 	components: {
 		App
 	}
-})
+}).$mount('#app')

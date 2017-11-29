@@ -2,7 +2,10 @@
 	<el-row class="tac">
 		<el-col :span="24">
 			<Top></Top>
-			<Left></Left>
+			<el-row>
+				<Left></Left>
+				<Right></Right>
+			</el-row>
 		</el-col>
 	</el-row>
 </template>
