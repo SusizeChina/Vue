@@ -35,7 +35,6 @@
 			getMenu() {
 				var menuApi = this.Consts.HOST + this.Consts.ADMIN.MENU_LIST;
 				var params = {};
-
 				params.id = 0;
 				params.enabled = 0;
 				this.$http.get(

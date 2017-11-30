@@ -44,5 +44,8 @@ export default new Router({
 			path: '/home/admin/manage/service',
 			component: service
 		}]
+	}, {
+		path: '/login',
+		component: Login,
 	}]
 })
