@@ -22,7 +22,7 @@ export default new Router({
 	base: __dirname,
 	mode: 'history',
 	routes: [{
-		path: '/',
+		path: '/home',
 		component: Home,
 		iconCls: 'el-icon-message', //图标样式class
 		children: [{
@@ -47,5 +47,8 @@ export default new Router({
 	}, {
 		path: '/login',
 		component: Login,
+	}, {
+		path: '/',
+		redirect: '/login',
 	}]
 })

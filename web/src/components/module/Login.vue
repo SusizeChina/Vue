@@ -15,8 +15,6 @@
 </template>
 
 <script>
-	import { mapActions } from 'vuex'
-	import { USER_SIGNIN } from 'store/user'
 	export default {
 		name: 'Login',
 		data() {
@@ -46,13 +44,12 @@
 
 		},
 		methods: {
-			...mapActions([USER_SIGNIN]),
 			handleSubmit(ev) {
 				this.$refs.ruleForm.validate((valid) => {
 					if(valid) {
-						this.USER_SIGNIN(this.ruleForm)
+						sessionStorage.setItem('user', JSON.stringify(this.ruleForm));
 						this.$router.push({
-							path: '/'
+							path: '/home'
 						});
 						//						this.logining = true;
 						//						var loginApi = this.Consts.HOST + this.Consts.ADMIN.LOGIN;
